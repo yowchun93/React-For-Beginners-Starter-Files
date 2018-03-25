@@ -9,8 +9,8 @@ class Fish extends React.Component {
   render() {
     // dependant on sequence, which is bad
     const { name, price, desc } = this.props.details;
-    // this line is gonna break
-    // const isAvailable = status === "available";
+    const isAvailable = this.props.details.status == "available" ? true : false
+
     return (
       <li className="menu-fish">
         <h2>{this.props.details.name}</h2>
@@ -19,7 +19,7 @@ class Fish extends React.Component {
           <span className="price">{price}</span>
         </h3>
         <p> {desc} </p>
-        <button onClick={this.handleClick.bind(this)} >
+        <button disabled={!isAvailable} onClick={this.handleClick.bind(this)} >
           Add to Order
         </button>
       </li>
