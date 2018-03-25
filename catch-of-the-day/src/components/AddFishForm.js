@@ -4,15 +4,16 @@ class AddFishForm extends React.Component {
 
   nameRef = React.createRef();
   priceRef = React.createRef();
+  descRef = React.createRef();
 
   createFish = (event) => {
     event.preventDefault();
     console.log('making fish!');
     const fish = {
-      name: this.nameRef.value.value
+      name: this.nameRef.value.value,
+      price: this.priceRef.value.value,
+      desc: this.descRef.value.value
     }
-    // console.log(fish)
-    console.log(this.nameRef.value.value);
     // this method updates the state
     this.props.addFish(fish);
   }
